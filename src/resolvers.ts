@@ -203,7 +203,7 @@ export const free = async (req: Request, res: Response) => {
   const collection = db.collection("reservas");
   const collection1 = db.collection("usuarios");
 
-  if (!req.query) {
+  if (!req.body) {
     return res.status(500).send("No params");
   }
 
@@ -216,7 +216,7 @@ export const free = async (req: Request, res: Response) => {
   if (exist != null) {
 
 
-    const { day, month, year } = req.query as {
+    const { day, month, year } = req.body as {
       day: string;
       month: string;
       year: string;
